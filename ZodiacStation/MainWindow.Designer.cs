@@ -32,58 +32,61 @@ namespace ZodiacStation
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("111");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("222");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("333");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("444");
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("555");
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("666");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("777");
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("888");
-            this.Drone_panel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("111");
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("222");
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("333");
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("444");
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("555");
+            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("666");
+            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("777");
+            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("888");
+            this.DronePanel = new System.Windows.Forms.Panel();
+            this.DroneList_Panel2 = new System.Windows.Forms.Panel();
+            this.DroneList_Panel3 = new System.Windows.Forms.Panel();
             this.ShwoDronesBtn = new MaterialSkin.Controls.MaterialFlatButton();
             this.DroneList = new MaterialSkin.Controls.MaterialListView();
             this.Drone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Drone_Spacer = new System.Windows.Forms.Panel();
-            this.Drone_panel.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.DronePanel.SuspendLayout();
+            this.DroneList_Panel2.SuspendLayout();
+            this.DroneList_Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Drone_panel
+            // DronePanel
             // 
-            this.Drone_panel.BackColor = System.Drawing.Color.Transparent;
-            this.Drone_panel.Controls.Add(this.panel1);
-            this.Drone_panel.Controls.Add(this.Drone_Spacer);
-            this.Drone_panel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Drone_panel.Location = new System.Drawing.Point(0, 0);
-            this.Drone_panel.Margin = new System.Windows.Forms.Padding(0);
-            this.Drone_panel.Name = "Drone_panel";
-            this.Drone_panel.Size = new System.Drawing.Size(278, 1080);
-            this.Drone_panel.TabIndex = 0;
+            this.DronePanel.BackColor = System.Drawing.Color.Transparent;
+            this.DronePanel.Controls.Add(this.DroneList_Panel2);
+            this.DronePanel.Controls.Add(this.Drone_Spacer);
+            this.DronePanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.DronePanel.Location = new System.Drawing.Point(0, 0);
+            this.DronePanel.Margin = new System.Windows.Forms.Padding(0);
+            this.DronePanel.Name = "DronePanel";
+            this.DronePanel.Size = new System.Drawing.Size(278, 1080);
+            this.DronePanel.TabIndex = 0;
             // 
-            // panel1
+            // DroneList_Panel2
             // 
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.DroneList);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 64);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(278, 1016);
-            this.panel1.TabIndex = 1;
+            this.DroneList_Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.DroneList_Panel2.Controls.Add(this.materialFlatButton1);
+            this.DroneList_Panel2.Controls.Add(this.DroneList_Panel3);
+            this.DroneList_Panel2.Controls.Add(this.DroneList);
+            this.DroneList_Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DroneList_Panel2.Location = new System.Drawing.Point(0, 64);
+            this.DroneList_Panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.DroneList_Panel2.Name = "DroneList_Panel2";
+            this.DroneList_Panel2.Size = new System.Drawing.Size(278, 1016);
+            this.DroneList_Panel2.TabIndex = 1;
             // 
-            // panel2
+            // DroneList_Panel3
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
-            this.panel2.Controls.Add(this.ShwoDronesBtn);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(250, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(28, 1016);
-            this.panel2.TabIndex = 1;
+            this.DroneList_Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(66)))), ((int)(((byte)(66)))));
+            this.DroneList_Panel3.Controls.Add(this.ShwoDronesBtn);
+            this.DroneList_Panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.DroneList_Panel3.Location = new System.Drawing.Point(250, 0);
+            this.DroneList_Panel3.Name = "DroneList_Panel3";
+            this.DroneList_Panel3.Size = new System.Drawing.Size(28, 1016);
+            this.DroneList_Panel3.TabIndex = 1;
             // 
             // ShwoDronesBtn
             // 
@@ -91,7 +94,7 @@ namespace ZodiacStation
             this.ShwoDronesBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ShwoDronesBtn.BackColor = System.Drawing.Color.Transparent;
             this.ShwoDronesBtn.Depth = 0;
-            this.ShwoDronesBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ShwoDronesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ShwoDronesBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.ShwoDronesBtn.Icon = null;
             this.ShwoDronesBtn.Location = new System.Drawing.Point(0, 0);
@@ -116,14 +119,14 @@ namespace ZodiacStation
             this.DroneList.FullRowSelect = true;
             this.DroneList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.DroneList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16});
+            listViewItem17,
+            listViewItem18,
+            listViewItem19,
+            listViewItem20,
+            listViewItem21,
+            listViewItem22,
+            listViewItem23,
+            listViewItem24});
             this.DroneList.Location = new System.Drawing.Point(0, 0);
             this.DroneList.Margin = new System.Windows.Forms.Padding(0);
             this.DroneList.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -149,13 +152,28 @@ namespace ZodiacStation
             this.Drone_Spacer.Size = new System.Drawing.Size(278, 64);
             this.Drone_Spacer.TabIndex = 0;
             // 
+            // materialFlatButton1
+            // 
+            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.Icon = null;
+            this.materialFlatButton1.Location = new System.Drawing.Point(0, 419);
+            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton1.Name = "materialFlatButton1";
+            this.materialFlatButton1.Primary = false;
+            this.materialFlatButton1.Size = new System.Drawing.Size(250, 36);
+            this.materialFlatButton1.TabIndex = 2;
+            this.materialFlatButton1.Text = "+";
+            this.materialFlatButton1.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
-            this.Controls.Add(this.Drone_panel);
+            this.Controls.Add(this.DronePanel);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainWindow";
@@ -165,23 +183,24 @@ namespace ZodiacStation
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            this.Drone_panel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.DronePanel.ResumeLayout(false);
+            this.DroneList_Panel2.ResumeLayout(false);
+            this.DroneList_Panel3.ResumeLayout(false);
+            this.DroneList_Panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel Drone_panel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel DronePanel;
+        private System.Windows.Forms.Panel DroneList_Panel2;
         private System.Windows.Forms.Panel Drone_Spacer;
         private MaterialListView DroneList;
         private MaterialFlatButton ShwoDronesBtn;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel DroneList_Panel3;
         private System.Windows.Forms.ColumnHeader Drone;
+        private MaterialFlatButton materialFlatButton1;
     }
 }
 
