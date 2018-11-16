@@ -32,24 +32,16 @@ namespace ZodiacStation
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("111");
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("222");
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("333");
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("444");
-            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("555");
-            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("666");
-            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("777");
-            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("888");
             this.DronePanel = new System.Windows.Forms.Panel();
             this.DroneList_Panel2 = new System.Windows.Forms.Panel();
+            this.DroneTable = new System.Windows.Forms.TableLayoutPanel();
+            this.AddDrone = new MaterialSkin.Controls.MaterialFlatButton();
             this.DroneList_Panel3 = new System.Windows.Forms.Panel();
             this.ShwoDronesBtn = new MaterialSkin.Controls.MaterialFlatButton();
-            this.DroneList = new MaterialSkin.Controls.MaterialListView();
-            this.Drone = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Drone_Spacer = new System.Windows.Forms.Panel();
-            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.DronePanel.SuspendLayout();
             this.DroneList_Panel2.SuspendLayout();
+            this.DroneTable.SuspendLayout();
             this.DroneList_Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,15 +60,56 @@ namespace ZodiacStation
             // DroneList_Panel2
             // 
             this.DroneList_Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.DroneList_Panel2.Controls.Add(this.materialFlatButton1);
+            this.DroneList_Panel2.Controls.Add(this.DroneTable);
             this.DroneList_Panel2.Controls.Add(this.DroneList_Panel3);
-            this.DroneList_Panel2.Controls.Add(this.DroneList);
             this.DroneList_Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DroneList_Panel2.Location = new System.Drawing.Point(0, 64);
             this.DroneList_Panel2.Margin = new System.Windows.Forms.Padding(0);
             this.DroneList_Panel2.Name = "DroneList_Panel2";
             this.DroneList_Panel2.Size = new System.Drawing.Size(278, 1016);
             this.DroneList_Panel2.TabIndex = 1;
+            // 
+            // DroneTable
+            // 
+            this.DroneTable.AutoScroll = true;
+            this.DroneTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.DroneTable.ColumnCount = 1;
+            this.DroneTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.DroneTable.Controls.Add(this.AddDrone, 0, 0);
+            this.DroneTable.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DroneTable.ForeColor = System.Drawing.Color.Transparent;
+            this.DroneTable.Location = new System.Drawing.Point(0, 0);
+            this.DroneTable.Margin = new System.Windows.Forms.Padding(0);
+            this.DroneTable.Name = "DroneTable";
+            this.DroneTable.RowCount = 2;
+            this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.937008F));
+            this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.063F));
+            this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 874F));
+            this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.DroneTable.Size = new System.Drawing.Size(250, 1016);
+            this.DroneTable.TabIndex = 2;
+            // 
+            // AddDrone
+            // 
+            this.AddDrone.AutoSize = true;
+            this.AddDrone.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AddDrone.BackColor = System.Drawing.Color.White;
+            this.AddDrone.Depth = 0;
+            this.AddDrone.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddDrone.Font = new System.Drawing.Font("苹方 常规", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AddDrone.ForeColor = System.Drawing.Color.Transparent;
+            this.AddDrone.Icon = null;
+            this.AddDrone.Location = new System.Drawing.Point(0, 0);
+            this.AddDrone.Margin = new System.Windows.Forms.Padding(0);
+            this.AddDrone.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AddDrone.Name = "AddDrone";
+            this.AddDrone.Primary = false;
+            this.AddDrone.Size = new System.Drawing.Size(250, 40);
+            this.AddDrone.TabIndex = 0;
+            this.AddDrone.Text = "＋";
+            this.AddDrone.UseVisualStyleBackColor = false;
+            this.AddDrone.Click += new System.EventHandler(this.AddDrone_Click);
             // 
             // DroneList_Panel3
             // 
@@ -94,7 +127,7 @@ namespace ZodiacStation
             this.ShwoDronesBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ShwoDronesBtn.BackColor = System.Drawing.Color.Transparent;
             this.ShwoDronesBtn.Depth = 0;
-            this.ShwoDronesBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ShwoDronesBtn.Dock = System.Windows.Forms.DockStyle.Right;
             this.ShwoDronesBtn.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.ShwoDronesBtn.Icon = null;
             this.ShwoDronesBtn.Location = new System.Drawing.Point(0, 0);
@@ -108,41 +141,6 @@ namespace ZodiacStation
             this.ShwoDronesBtn.UseVisualStyleBackColor = false;
             this.ShwoDronesBtn.Click += new System.EventHandler(this.ShwoDronesBtn_Click);
             // 
-            // DroneList
-            // 
-            this.DroneList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DroneList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Drone});
-            this.DroneList.Depth = 0;
-            this.DroneList.Dock = System.Windows.Forms.DockStyle.Left;
-            this.DroneList.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.DroneList.FullRowSelect = true;
-            this.DroneList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.DroneList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem17,
-            listViewItem18,
-            listViewItem19,
-            listViewItem20,
-            listViewItem21,
-            listViewItem22,
-            listViewItem23,
-            listViewItem24});
-            this.DroneList.Location = new System.Drawing.Point(0, 0);
-            this.DroneList.Margin = new System.Windows.Forms.Padding(0);
-            this.DroneList.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.DroneList.MouseState = MaterialSkin.MouseState.OUT;
-            this.DroneList.Name = "DroneList";
-            this.DroneList.OwnerDraw = true;
-            this.DroneList.Size = new System.Drawing.Size(250, 1016);
-            this.DroneList.TabIndex = 0;
-            this.DroneList.UseCompatibleStateImageBehavior = false;
-            this.DroneList.View = System.Windows.Forms.View.Details;
-            // 
-            // Drone
-            // 
-            this.Drone.Text = "Drone";
-            this.Drone.Width = 250;
-            // 
             // Drone_Spacer
             // 
             this.Drone_Spacer.Dock = System.Windows.Forms.DockStyle.Top;
@@ -152,39 +150,26 @@ namespace ZodiacStation
             this.Drone_Spacer.Size = new System.Drawing.Size(278, 64);
             this.Drone_Spacer.TabIndex = 0;
             // 
-            // materialFlatButton1
-            // 
-            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Icon = null;
-            this.materialFlatButton1.Location = new System.Drawing.Point(0, 419);
-            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton1.Name = "materialFlatButton1";
-            this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(250, 36);
-            this.materialFlatButton1.TabIndex = 2;
-            this.materialFlatButton1.Text = "+";
-            this.materialFlatButton1.UseVisualStyleBackColor = true;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.DronePanel);
+            this.ForeColor = System.Drawing.Color.DimGray;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "MainWindow";
             this.Sizable = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Zodiac Station";
-            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.DronePanel.ResumeLayout(false);
             this.DroneList_Panel2.ResumeLayout(false);
+            this.DroneTable.ResumeLayout(false);
+            this.DroneTable.PerformLayout();
             this.DroneList_Panel3.ResumeLayout(false);
             this.DroneList_Panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -196,11 +181,10 @@ namespace ZodiacStation
         private System.Windows.Forms.Panel DronePanel;
         private System.Windows.Forms.Panel DroneList_Panel2;
         private System.Windows.Forms.Panel Drone_Spacer;
-        private MaterialListView DroneList;
         private MaterialFlatButton ShwoDronesBtn;
         private System.Windows.Forms.Panel DroneList_Panel3;
-        private System.Windows.Forms.ColumnHeader Drone;
-        private MaterialFlatButton materialFlatButton1;
+        private System.Windows.Forms.TableLayoutPanel DroneTable;
+        private MaterialFlatButton AddDrone;
     }
 }
 
