@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindDrone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BindDrone.Designer.cs">
+      <DependentUpon>BindDrone.cs</DependentUpon>
+    </Compile>
     <Compile Include="DroneListView.cs">
       <SubType>Component</SubType>
     </Compile>

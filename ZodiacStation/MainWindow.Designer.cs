@@ -43,6 +43,7 @@ namespace ZodiacStation
             this.DroneList_Panel2.SuspendLayout();
             this.DroneTable.SuspendLayout();
             this.DroneList_Panel3.SuspendLayout();
+            this.Drone_Spacer.SuspendLayout();
             this.SuspendLayout();
             // 
             // DronePanel
@@ -82,13 +83,14 @@ namespace ZodiacStation
             this.DroneTable.Margin = new System.Windows.Forms.Padding(0);
             this.DroneTable.Name = "DroneTable";
             this.DroneTable.RowCount = 2;
-            this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.937008F));
-            this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.063F));
+            this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 874F));
             this.DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.DroneTable.Size = new System.Drawing.Size(250, 1016);
+            this.DroneTable.Size = new System.Drawing.Size(250, 80);
             this.DroneTable.TabIndex = 2;
+            this.DroneTable.Paint += new System.Windows.Forms.PaintEventHandler(this.DroneTable_Paint);
             // 
             // AddDrone
             // 
@@ -155,6 +157,7 @@ namespace ZodiacStation
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1920, 1080);
             this.Controls.Add(this.DronePanel);
@@ -172,6 +175,7 @@ namespace ZodiacStation
             this.DroneTable.PerformLayout();
             this.DroneList_Panel3.ResumeLayout(false);
             this.DroneList_Panel3.PerformLayout();
+            this.Drone_Spacer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
