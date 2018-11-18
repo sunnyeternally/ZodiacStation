@@ -15,15 +15,19 @@ namespace ZodiacStation
 {
     public partial class MainWindow : MaterialForm
     {
+        private List<DroneInfomation> DroneInfomations;
         private MaterialSkinManager materialSkinManager;
         private bool ShowDrone;
         MaterialFlatButton materialFlatButton1;
+        public BindDrone Bind;
 
 
         public MainWindow()
         {
             InitializeComponent();
             ShowDrone = true;
+            DroneInfomations = new List<DroneInfomation>();
+            Bind = new BindDrone(this);
         }
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
@@ -80,66 +84,65 @@ namespace ZodiacStation
 
         private void AddDrone_Click(object sender, EventArgs e)
         {
+            Bind.Display();  
+        }
 
-            DroneTable.RowCount++;
-            //设置高度
-            //DroneTable.Height = DroneTable.RowCount * 40;
-            // 行高
-            int height = (DroneTable.RowCount - 2) * 200 + 40;
-            if (height > DroneList_Panel2.Height) height = DroneList_Panel2.Height;
-            DroneTable.Height = height;
+        public void AddDroneInformation(DroneInfomation info)
+        {
+            DroneInfomations.Add(info);
+            RedrawDroneTable();
+        }
 
-            MaterialRaisedButton temp = new MaterialRaisedButton();
-            // 
-            // temp
-            // 
-            temp.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            temp.Depth = 0;
-            temp.Dock = System.Windows.Forms.DockStyle.Fill;
-            temp.Icon = null;
-            temp.Location = new System.Drawing.Point(0, 0);
-            temp.Margin = new System.Windows.Forms.Padding(0);
-            temp.MouseState = MaterialSkin.MouseState.HOVER;
-            temp.Name = "temp";
-            temp.Primary = false;
-            temp.Size = new System.Drawing.Size(278, 64);
-            temp.TabIndex = 2;
-            temp.Text = "-";
-            temp.UseVisualStyleBackColor = true;
-            temp.Click += new System.EventHandler(this.temp_Click);
+        public void ExclusiveActivate(DroneInfomation info)
+        {
+            foreach (DroneInfomation item in DroneInfomations)
+            {
+                if (item != info)
+                {
+                    item.Losefocus();
+                }
+            }
+        }
+
+
+        public void SetAddDroneActice(bool active)
+        {
+            if (active) AddDrone.Enabled = true;
+            else AddDrone.Enabled = false;
+        }
+
+        private void RedrawDroneTable()
+        {
+            DroneTable.Controls.Clear();
+            DroneTable.RowStyles.Clear();
+            DroneTable.RowCount = DroneInfomations.Count + 2;
+
             
 
-            //MaterialLabel temp = new MaterialLabel();
-            temp.Text = (DroneTable.RowCount - 1).ToString();
-            DroneTable.Controls.Add(temp, 0, DroneTable.RowCount - 1);
-            DroneTable.Controls.Add(AddDrone, 0, DroneTable.RowCount);
             DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40));
-
-            for(int k=2; k< DroneTable.RowCount;k++)
+            for (int i = 0; i < DroneInfomations.Count; i++)
             {
-                DroneTable.RowStyles[k].Height = 200;
+                DroneInfomations[i].Text = i.ToString();
+                DroneTable.Controls.Add(DroneInfomations[i], 0, i);
+                DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40));
             }
-            DroneTable.RowStyles[DroneTable.RowCount].Height = 40;
-            DroneTable.RowStyles[1].Height = 0;
-            DroneTable.RowStyles[0].Height = 0;
-
-
-
-
+            for (int k = 0; k < DroneTable.RowCount - 2; k++)
+            {
+                DroneTable.RowStyles[k].Height = 250;
+            }
+            DroneTable.Controls.Add(AddDrone, 0, DroneTable.RowCount - 2);
+            DroneTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.AutoSize, 40));
+            DroneTable.Height = DroneList_Panel2.Height;
+            if (DroneInfomations.Count * 250 + 40 > DroneList_Panel2.Height) DroneTable.AutoScroll = true;
+            else DroneTable.AutoScroll = false;
         }
 
         private void temp_Click(object sender, EventArgs e)
         {
             MaterialRaisedButton btn = (MaterialRaisedButton)sender;
-           
-            DroneTable.Controls.Remove(btn);
-            DroneTable.
-            DroneTable.RowCount--;
+            //Dro.Remove(btn);
+            RedrawDroneTable();
 
-
-            int height = (DroneTable.RowCount - 2) * 200 + 40;
-            if (height > DroneList_Panel2.Height) height = DroneList_Panel2.Height;
-            DroneTable.Height = height;
 
         }
     }

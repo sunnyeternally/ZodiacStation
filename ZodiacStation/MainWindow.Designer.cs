@@ -43,7 +43,6 @@ namespace ZodiacStation
             this.DroneList_Panel2.SuspendLayout();
             this.DroneTable.SuspendLayout();
             this.DroneList_Panel3.SuspendLayout();
-            this.Drone_Spacer.SuspendLayout();
             this.SuspendLayout();
             // 
             // DronePanel
@@ -60,6 +59,7 @@ namespace ZodiacStation
             // 
             // DroneList_Panel2
             // 
+            this.DroneList_Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.DroneList_Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.DroneList_Panel2.Controls.Add(this.DroneTable);
             this.DroneList_Panel2.Controls.Add(this.DroneList_Panel3);
@@ -72,7 +72,6 @@ namespace ZodiacStation
             // 
             // DroneTable
             // 
-            this.DroneTable.AutoScroll = true;
             this.DroneTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.DroneTable.ColumnCount = 1;
             this.DroneTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -175,7 +174,6 @@ namespace ZodiacStation
             this.DroneTable.PerformLayout();
             this.DroneList_Panel3.ResumeLayout(false);
             this.DroneList_Panel3.PerformLayout();
-            this.Drone_Spacer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
