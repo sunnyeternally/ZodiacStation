@@ -21,9 +21,16 @@ namespace ZodiacStation
         private MaterialSkinManager materialSkinManager;
         private bool ShowDrone;
         public BindDrone Bind;
-        ProcessStartInfo info;
-        Process MapBrowser;
-        IntPtr MapBrowserHWND;
+
+        private Process MapBrowser;
+        private IntPtr MapBrowserHWND = IntPtr.Zero;
+        private const int WM_ACTIVATE = 0x0006;
+        private readonly IntPtr WA_ACTIVE = new IntPtr(1);
+        private readonly IntPtr WA_INACTIVE = new IntPtr(0);
+
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        static extern int SendMessage(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern int ShowScrollBar(IntPtr hWnd, int bar, int show);
@@ -60,21 +67,43 @@ namespace ZodiacStation
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
-            DroneList_Panel2.Width = 278;
-            DroneTable.Width = 250;
 
             MapBrowser = new Process();
-            MapBrowser.StartInfo.FileName = "E:\\My Projects\\GroundStation\\Earth.exe";
+            MapBrowser.StartInfo.FileName = "E:\\My Project\\MapPlugin\\GlobalBrowser.exe";
             MapBrowser.StartInfo.Arguments = "-parentHWND " + Detail.Handle.ToInt32() + " " + Environment.CommandLine;
             MapBrowser.StartInfo.UseShellExecute = true;
             MapBrowser.StartInfo.CreateNoWindow = true;
 
             MapBrowser.Start();
-            while (MapBrowser.MainWindowHandle == null) {;}
-            MapBrowserHWND = MapBrowser.MainWindowHandle;
-            
+
+            MapBrowser.WaitForInputIdle();
+
+            EnumChildWindows(Detail.Handle, WindowEnum, IntPtr.Zero);
+            ActivateUnityWindow();
+
+            Thread.Sleep(100);
+            DroneList_Panel2.Width = 278;
+            DroneTable.Width = 250;
 
         }
+
+        private int WindowEnum(IntPtr hwnd, IntPtr lparam)
+        {
+            MapBrowserHWND = hwnd;
+            ActivateUnityWindow();
+            return 0;
+        }
+
+        private void ActivateUnityWindow()
+        {
+            SendMessage(MapBrowserHWND, WM_ACTIVATE, WA_ACTIVE, IntPtr.Zero);
+        }
+
+        private void DeactivateUnityWindow()
+        {
+            SendMessage(MapBrowserHWND, WM_ACTIVATE, WA_INACTIVE, IntPtr.Zero);
+        }
+
 
         private void DroneTable_Paint(object sender, PaintEventArgs e)
         {
@@ -161,8 +190,12 @@ namespace ZodiacStation
             MaterialRaisedButton btn = (MaterialRaisedButton)sender;
             //Dro.Remove(btn);
             RedrawDroneTable();
+        }
 
-
+        private void Detail_Resize(object sender, EventArgs e)
+        {
+                MoveWindow(MapBrowserHWND, 0, 0, Detail.Width, Detail.Height, true);
+                ActivateUnityWindow();
         }
     }
 }
