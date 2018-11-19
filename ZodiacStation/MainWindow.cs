@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace ZodiacStation
 {
@@ -18,8 +20,23 @@ namespace ZodiacStation
         private List<DroneInfomation> DroneInfomations;
         private MaterialSkinManager materialSkinManager;
         private bool ShowDrone;
-        MaterialFlatButton materialFlatButton1;
         public BindDrone Bind;
+        ProcessStartInfo info;
+        Process MapBrowser;
+        IntPtr MapBrowserHWND;
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int ShowScrollBar(IntPtr hWnd, int bar, int show);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int MoveWindow(IntPtr hWnd, int x, int y, int nWidth, int nHeight, bool BRePaint);
+
+        internal delegate int WindowEnumProc(IntPtr hwnd, IntPtr lparam);
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        internal static extern bool EnumChildWindows(IntPtr hwnd, WindowEnumProc func, IntPtr lParam);
 
 
         public MainWindow()
@@ -28,11 +45,13 @@ namespace ZodiacStation
             ShowDrone = true;
             DroneInfomations = new List<DroneInfomation>();
             Bind = new BindDrone(this);
+            
         }
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern int ShowScrollBar(IntPtr hWnd, int bar, int show);
-
+        ~MainWindow()
+        {
+            MapBrowser.Kill();
+        }
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -41,20 +60,19 @@ namespace ZodiacStation
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
 
-            materialFlatButton1 = new MaterialFlatButton();
-            materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            materialFlatButton1.Depth = 0;
-            materialFlatButton1.Icon = null;
-            materialFlatButton1.Margin = new System.Windows.Forms.Padding(0);
-            materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialFlatButton1.Name = "materialFlatButton1";
-            materialFlatButton1.Primary = false;
-            materialFlatButton1.Size = new System.Drawing.Size(250, 37);
-            materialFlatButton1.TabIndex = 2;
-            materialFlatButton1.Text = "+";
-            materialFlatButton1.UseVisualStyleBackColor = true;
+            DroneList_Panel2.Width = 278;
+            DroneTable.Width = 250;
 
-            //materialFlatButton1.Location = new System.Drawing.Point(DroneList.Items[3].Position.X, DroneList.Items[3].Position.Y);
+            MapBrowser = new Process();
+            MapBrowser.StartInfo.FileName = "E:\\My Projects\\GroundStation\\Earth.exe";
+            MapBrowser.StartInfo.Arguments = "-parentHWND " + Detail.Handle.ToInt32() + " " + Environment.CommandLine;
+            MapBrowser.StartInfo.UseShellExecute = true;
+            MapBrowser.StartInfo.CreateNoWindow = true;
+
+            MapBrowser.Start();
+            while (MapBrowser.MainWindowHandle == null) {;}
+            MapBrowserHWND = MapBrowser.MainWindowHandle;
+            
 
         }
 
@@ -71,14 +89,15 @@ namespace ZodiacStation
             if (ShowDrone)
             {
                 this.ShwoDronesBtn.Text = "◀";
-                DronePanel.Width = 278;
+                DroneList_Panel2.Width = 278;
                 DroneTable.Width = 250;
             }
             else
             {
                 this.ShwoDronesBtn.Text = "▶";
-                DronePanel.Width = 28;
+                DroneList_Panel2.Width = 28;
                 DroneTable.Width = 0;
+
             }
         }
 

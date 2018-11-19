@@ -18,12 +18,6 @@ namespace ZodiacStation
 {
     public unsafe partial class VideoStreaming : MaterialForm
     {
-        private readonly AVCodecContext* _pCodecContext;
-        private readonly AVFormatContext* _pFormatContext;
-        private readonly int _streamIndex;
-        private readonly AVFrame* _pFrame;
-        private readonly AVPacket* _pPacket;
-
 
         public VideoStreaming()
         {
