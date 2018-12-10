@@ -47,7 +47,14 @@ namespace ZodiacStation
 
         private void DroneInfomation_MouseLeave(object sender, EventArgs e)
         {
-            if (!Active)
+            bool inside = false;
+            Point p = Control.MousePosition;
+            if (p.X > 0 && p.X < 250 && p.Y > 0 && p.Y < 250)
+            {
+                inside = true;
+            }
+
+            if (!Active && !inside)
             {
                 this.BackColor = Color.Transparent;
             }

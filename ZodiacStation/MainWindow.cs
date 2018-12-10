@@ -52,7 +52,7 @@ namespace ZodiacStation
             ShowDrone = true;
             DroneInfomations = new List<DroneInfomation>();
             Bind = new BindDrone(this);
-            
+
         }
 
         ~MainWindow()
@@ -69,7 +69,7 @@ namespace ZodiacStation
 
 
             MapBrowser = new Process();
-            MapBrowser.StartInfo.FileName = "E:\\My Project\\MapPlugin\\GlobalBrowser.exe";
+            MapBrowser.StartInfo.FileName = "F:\\My Projects\\MapBrowser\\GlobalBrowser.exe";
             MapBrowser.StartInfo.Arguments = "-parentHWND " + Detail.Handle.ToInt32() + " " + Environment.CommandLine;
             MapBrowser.StartInfo.UseShellExecute = true;
             MapBrowser.StartInfo.CreateNoWindow = true;
@@ -196,6 +196,26 @@ namespace ZodiacStation
         {
                 MoveWindow(MapBrowserHWND, 0, 0, Detail.Width, Detail.Height, true);
                 ActivateUnityWindow();
+        }
+
+        private void CamIcon_Click(object sender, EventArgs e)
+        {
+            RTControl_Click(sender,e);
+        }
+
+        private void RTControl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ThreeDIcon_Click(object sender, EventArgs e)
+        {
+            ThreeDControl_Click(sender, e);
+        }
+
+        private void ThreeDControl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
