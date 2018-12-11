@@ -95,6 +95,12 @@
     <Compile Include="VideoStreaming.Designer.cs">
       <DependentUpon>VideoStreaming.cs</DependentUpon>
     </Compile>
+    <Compile Include="VLCPlayer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VLCPlayer.Designer.cs">
+      <DependentUpon>VLCPlayer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BindDrone.resx">
       <DependentUpon>BindDrone.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VideoStreaming.resx">
       <DependentUpon>VideoStreaming.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VLCPlayer.resx">
+      <DependentUpon>VLCPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

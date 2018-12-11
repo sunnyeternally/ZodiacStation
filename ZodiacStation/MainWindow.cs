@@ -52,7 +52,6 @@ namespace ZodiacStation
             ShowDrone = true;
             DroneInfomations = new List<DroneInfomation>();
             Bind = new BindDrone(this);
-
         }
 
         ~MainWindow()
@@ -84,6 +83,15 @@ namespace ZodiacStation
             Thread.Sleep(100);
             DroneList_Panel2.Width = 278;
             DroneTable.Width = 250;
+
+            BrowserIcon.Parent = BrowserControl;
+            CamIcon.Parent = RTControl;
+            ThreeDIcon.Parent = ThreeDControl;
+
+            VLCPlayer vlc = new VLCPlayer();
+            string url = "rtsp://127.0.0.1:8554/vlc";
+            vlc.playUrl(url, this.RTDisplay_Panel.Handle);
+            vlc.playLocalVideo(url, this.RTDisplay_Panel.Handle);
 
         }
 
@@ -205,6 +213,12 @@ namespace ZodiacStation
 
         private void RTControl_Click(object sender, EventArgs e)
         {
+            this.Detail.Width = 0;
+            this.RTViewPanel.Width = 1864;
+            this.ThreeD_Panel.Width = 0;
+            this.RTViewControl_Panel.BackColor = Color.DimGray;
+            this.BrowserControl_Panel.BackColor = Color.FromArgb(255,64,64,64);
+            this.ThreeDControl_Panel.BackColor = Color.FromArgb(255, 64, 64, 64);
 
         }
 
@@ -215,7 +229,22 @@ namespace ZodiacStation
 
         private void ThreeDControl_Click(object sender, EventArgs e)
         {
+            this.Detail.Width = 0;
+            this.RTViewPanel.Width = 0;
+            this.ThreeD_Panel.Width = 1864;
+            this.RTViewControl_Panel.BackColor = Color.FromArgb(255, 64, 64, 64);
+            this.BrowserControl_Panel.BackColor = Color.FromArgb(255, 64, 64, 64);
+            this.ThreeDControl_Panel.BackColor = Color.DimGray;
+        }
 
+        private void BrowserControl_Click(object sender, EventArgs e)
+        {
+            this.Detail.Width = 1864;
+            this.RTViewPanel.Width = 0;
+            this.ThreeD_Panel.Width = 0;
+            this.RTViewControl_Panel.BackColor = Color.FromArgb(255, 64, 64, 64);
+            this.BrowserControl_Panel.BackColor = Color.DimGray;
+            this.ThreeDControl_Panel.BackColor = Color.FromArgb(255, 64, 64, 64);
         }
     }
 }

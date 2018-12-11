@@ -21,7 +21,7 @@ namespace ZodiacStation
             Controller = controller;
             Height = 250;
             Width = 250;
-    }
+        }
 
         private void DroneInfomation_Click(object sender, EventArgs e)
         {
@@ -47,14 +47,7 @@ namespace ZodiacStation
 
         private void DroneInfomation_MouseLeave(object sender, EventArgs e)
         {
-            bool inside = false;
-            Point p = Control.MousePosition;
-            if (p.X > 0 && p.X < 250 && p.Y > 0 && p.Y < 250)
-            {
-                inside = true;
-            }
-
-            if (!Active && !inside)
+            if (!Active)
             {
                 this.BackColor = Color.Transparent;
             }
