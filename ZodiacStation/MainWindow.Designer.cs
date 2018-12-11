@@ -40,6 +40,7 @@ namespace ZodiacStation
             this.DetailControl_Panel = new System.Windows.Forms.Panel();
             this.RTViewPanel = new System.Windows.Forms.Panel();
             this.RTDisplay_Panel = new System.Windows.Forms.Panel();
+            this.vlcPlayer1 = new ZodiacStation.VLCPlayer();
             this.RTSpacer_Panel1 = new System.Windows.Forms.Panel();
             this.RTSpacer_Panel2 = new System.Windows.Forms.Panel();
             this.ThreeD_Panel = new System.Windows.Forms.Panel();
@@ -86,11 +87,13 @@ namespace ZodiacStation
             this.Interval = new System.Windows.Forms.Panel();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.Detail_Panel.SuspendLayout();
             this.Ground.SuspendLayout();
             this.MainViewPanel.SuspendLayout();
             this.DetailControl_Panel.SuspendLayout();
             this.RTViewPanel.SuspendLayout();
+            this.RTDisplay_Panel.SuspendLayout();
             this.TabControl_Panel.SuspendLayout();
             this.ThreeDControl_Panel.SuspendLayout();
             this.RTViewControl_Panel.SuspendLayout();
@@ -107,6 +110,7 @@ namespace ZodiacStation
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
             this.Interval.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -175,11 +179,21 @@ namespace ZodiacStation
             // RTDisplay_Panel
             // 
             this.RTDisplay_Panel.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.RTDisplay_Panel.Controls.Add(this.vlcPlayer1);
             this.RTDisplay_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RTDisplay_Panel.Location = new System.Drawing.Point(0, 84);
             this.RTDisplay_Panel.Name = "RTDisplay_Panel";
             this.RTDisplay_Panel.Size = new System.Drawing.Size(0, 832);
             this.RTDisplay_Panel.TabIndex = 2;
+            // 
+            // vlcPlayer1
+            // 
+            this.vlcPlayer1.BackColor = System.Drawing.Color.Black;
+            this.vlcPlayer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vlcPlayer1.Location = new System.Drawing.Point(0, 0);
+            this.vlcPlayer1.Name = "vlcPlayer1";
+            this.vlcPlayer1.Size = new System.Drawing.Size(0, 832);
+            this.vlcPlayer1.TabIndex = 0;
             // 
             // RTSpacer_Panel1
             // 
@@ -187,7 +201,7 @@ namespace ZodiacStation
             this.RTSpacer_Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.RTSpacer_Panel1.Location = new System.Drawing.Point(0, 0);
             this.RTSpacer_Panel1.Name = "RTSpacer_Panel1";
-            this.RTSpacer_Panel1.Size = new System.Drawing.Size(20, 84);
+            this.RTSpacer_Panel1.Size = new System.Drawing.Size(0, 84);
             this.RTSpacer_Panel1.TabIndex = 0;
             // 
             // RTSpacer_Panel2
@@ -196,7 +210,7 @@ namespace ZodiacStation
             this.RTSpacer_Panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.RTSpacer_Panel2.Location = new System.Drawing.Point(0, 916);
             this.RTSpacer_Panel2.Name = "RTSpacer_Panel2";
-            this.RTSpacer_Panel2.Size = new System.Drawing.Size(20, 100);
+            this.RTSpacer_Panel2.Size = new System.Drawing.Size(0, 100);
             this.RTSpacer_Panel2.TabIndex = 1;
             // 
             // ThreeD_Panel
@@ -270,7 +284,7 @@ namespace ZodiacStation
             this.ThreeDControl.BackColor = System.Drawing.Color.Transparent;
             this.ThreeDControl.Depth = 0;
             this.ThreeDControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ThreeDControl.Font = new System.Drawing.Font("华文细黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ThreeDControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ThreeDControl.Icon = null;
             this.ThreeDControl.Location = new System.Drawing.Point(0, 0);
             this.ThreeDControl.Margin = new System.Windows.Forms.Padding(0);
@@ -771,11 +785,21 @@ namespace ZodiacStation
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.panel19);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(278, 40);
             this.panel3.TabIndex = 0;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel19.Location = new System.Drawing.Point(132, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(146, 40);
+            this.panel19.TabIndex = 0;
             // 
             // MainWindow
             // 
@@ -800,6 +824,7 @@ namespace ZodiacStation
             this.MainViewPanel.ResumeLayout(false);
             this.DetailControl_Panel.ResumeLayout(false);
             this.RTViewPanel.ResumeLayout(false);
+            this.RTDisplay_Panel.ResumeLayout(false);
             this.TabControl_Panel.ResumeLayout(false);
             this.ThreeDControl_Panel.ResumeLayout(false);
             this.ThreeDControl_Panel.PerformLayout();
@@ -828,6 +853,7 @@ namespace ZodiacStation
             this.panel5.PerformLayout();
             this.Interval.ResumeLayout(false);
             this.Interval.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -886,6 +912,8 @@ namespace ZodiacStation
         private System.Windows.Forms.Panel RTDisplay_Panel;
         private System.Windows.Forms.Panel RTSpacer_Panel2;
         private System.Windows.Forms.Panel RTSpacer_Panel1;
+        private VLCPlayer vlcPlayer1;
+        private System.Windows.Forms.Panel panel19;
     }
 }
 

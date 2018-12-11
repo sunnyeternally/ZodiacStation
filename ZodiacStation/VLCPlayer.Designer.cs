@@ -28,19 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Video = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Video)).BeginInit();
             this.SuspendLayout();
+            // 
+            // Video
+            // 
+            this.Video.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Video.Location = new System.Drawing.Point(0, 0);
+            this.Video.Margin = new System.Windows.Forms.Padding(0);
+            this.Video.Name = "Video";
+            this.Video.Size = new System.Drawing.Size(1389, 726);
+            this.Video.TabIndex = 0;
+            this.Video.TabStop = false;
             // 
             // VLCPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.Video);
             this.Name = "VLCPlayer";
-            this.Size = new System.Drawing.Size(654, 442);
+            this.Size = new System.Drawing.Size(1389, 726);
+            this.Load += new System.EventHandler(this.VLCPlayer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Video)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox Video;
     }
 }

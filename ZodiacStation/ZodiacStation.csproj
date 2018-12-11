@@ -35,8 +35,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FFmpeg.AutoGen, Version=4.1.0.1, Culture=neutral, PublicKeyToken=9b7632533a381715, processorArchitecture=MSIL">
-      <HintPath>..\packages\FFmpeg.AutoGen.4.1.0.1\lib\net45\FFmpeg.AutoGen.dll</HintPath>
+    <Reference Include="FFmpeg.AutoGen, Version=3.4.0.5, Culture=neutral, PublicKeyToken=9b7632533a381715, processorArchitecture=MSIL">
+      <HintPath>..\packages\FFmpeg.AutoGen.3.4.0.5\lib\net45\FFmpeg.AutoGen.dll</HintPath>
     </Reference>
     <Reference Include="FFmpeg.AutoGen.Example, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -70,6 +70,7 @@
     <Compile Include="DroneInfomation.Designer.cs">
       <DependentUpon>DroneInfomation.cs</DependentUpon>
     </Compile>
+    <Compile Include="FFmpegPlayer.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,12 +89,6 @@
     </Compile>
     <Compile Include="Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
-    </Compile>
-    <Compile Include="VideoStreaming.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VideoStreaming.Designer.cs">
-      <DependentUpon>VideoStreaming.cs</DependentUpon>
     </Compile>
     <Compile Include="VLCPlayer.cs">
       <SubType>UserControl</SubType>
@@ -117,9 +112,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VideoStreaming.resx">
-      <DependentUpon>VideoStreaming.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VLCPlayer.resx">
       <DependentUpon>VLCPlayer.cs</DependentUpon>

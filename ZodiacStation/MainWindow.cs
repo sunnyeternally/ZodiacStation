@@ -68,7 +68,7 @@ namespace ZodiacStation
 
 
             MapBrowser = new Process();
-            MapBrowser.StartInfo.FileName = "F:\\My Projects\\MapBrowser\\GlobalBrowser.exe";
+            MapBrowser.StartInfo.FileName = "E:\\My Project\\MapBrowser\\GlobalBrowser.exe";
             MapBrowser.StartInfo.Arguments = "-parentHWND " + Detail.Handle.ToInt32() + " " + Environment.CommandLine;
             MapBrowser.StartInfo.UseShellExecute = true;
             MapBrowser.StartInfo.CreateNoWindow = true;
@@ -87,11 +87,6 @@ namespace ZodiacStation
             BrowserIcon.Parent = BrowserControl;
             CamIcon.Parent = RTControl;
             ThreeDIcon.Parent = ThreeDControl;
-
-            VLCPlayer vlc = new VLCPlayer();
-            string url = "rtsp://127.0.0.1:8554/vlc";
-            vlc.playUrl(url, this.RTDisplay_Panel.Handle);
-            vlc.playLocalVideo(url, this.RTDisplay_Panel.Handle);
 
         }
 
