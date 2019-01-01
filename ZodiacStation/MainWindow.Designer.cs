@@ -169,8 +169,8 @@ namespace ZodiacStation
             this.RTViewPanel.Controls.Add(this.RTDisplay_Panel);
             this.RTViewPanel.Controls.Add(this.RTSpacer_Panel1);
             this.RTViewPanel.Controls.Add(this.RTSpacer_Panel2);
-            this.RTViewPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.RTViewPanel.Location = new System.Drawing.Point(0, 0);
+            this.RTViewPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.RTViewPanel.Location = new System.Drawing.Point(1852, 0);
             this.RTViewPanel.Margin = new System.Windows.Forms.Padding(0);
             this.RTViewPanel.Name = "RTViewPanel";
             this.RTViewPanel.Size = new System.Drawing.Size(0, 1016);
@@ -215,8 +215,8 @@ namespace ZodiacStation
             // 
             // ThreeD_Panel
             // 
-            this.ThreeD_Panel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ThreeD_Panel.Location = new System.Drawing.Point(0, 0);
+            this.ThreeD_Panel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ThreeD_Panel.Location = new System.Drawing.Point(1852, 0);
             this.ThreeD_Panel.Name = "ThreeD_Panel";
             this.ThreeD_Panel.Size = new System.Drawing.Size(0, 1016);
             this.ThreeD_Panel.TabIndex = 2;
@@ -528,7 +528,7 @@ namespace ZodiacStation
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.panel16.Controls.Add(this.materialFlatButton7);
+            this.panel16.Controls.Add(this.materialFlatButton2);
             this.panel16.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel16.Location = new System.Drawing.Point(750, 0);
             this.panel16.Name = "panel16";
@@ -565,7 +565,7 @@ namespace ZodiacStation
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.panel14.Controls.Add(this.materialFlatButton6);
+            this.panel14.Controls.Add(this.materialFlatButton1);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel14.Location = new System.Drawing.Point(625, 0);
             this.panel14.Name = "panel14";
@@ -716,7 +716,7 @@ namespace ZodiacStation
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.panel5.Controls.Add(this.materialFlatButton2);
+            this.panel5.Controls.Add(this.materialFlatButton7);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(125, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
@@ -756,7 +756,7 @@ namespace ZodiacStation
             // Interval
             // 
             this.Interval.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.Interval.Controls.Add(this.materialFlatButton1);
+            this.Interval.Controls.Add(this.materialFlatButton6);
             this.Interval.Dock = System.Windows.Forms.DockStyle.Left;
             this.Interval.Location = new System.Drawing.Point(0, 0);
             this.Interval.Margin = new System.Windows.Forms.Padding(0);

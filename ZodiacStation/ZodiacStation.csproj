@@ -70,7 +70,6 @@
     <Compile Include="DroneInfomation.Designer.cs">
       <DependentUpon>DroneInfomation.cs</DependentUpon>
     </Compile>
-    <Compile Include="FFmpegPlayer.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

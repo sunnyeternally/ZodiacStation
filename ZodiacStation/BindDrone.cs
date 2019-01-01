@@ -41,6 +41,21 @@ namespace ZodiacStation
             Controller.AddDroneInformation(info);
             Controller.SetAddDroneActice(true);
             Hide();
+
+
+
+
+
+
+
+
+
+
+        }
+
+        private void LoadButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

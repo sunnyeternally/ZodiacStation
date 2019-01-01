@@ -68,7 +68,7 @@ namespace ZodiacStation
 
 
             MapBrowser = new Process();
-            MapBrowser.StartInfo.FileName = "E:\\My Project\\MapBrowser\\GlobalBrowser.exe";
+            MapBrowser.StartInfo.FileName = "F:\\My Projects\\MapBrowser\\GlobalBrowser.exe";
             MapBrowser.StartInfo.Arguments = "-parentHWND " + Detail.Handle.ToInt32() + " " + Environment.CommandLine;
             MapBrowser.StartInfo.UseShellExecute = true;
             MapBrowser.StartInfo.CreateNoWindow = true;
@@ -208,13 +208,17 @@ namespace ZodiacStation
 
         private void RTControl_Click(object sender, EventArgs e)
         {
+            this.RTViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Detail.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ThreeD_Panel.Dock = System.Windows.Forms.DockStyle.Left;
+
             this.Detail.Width = 0;
-            this.RTViewPanel.Width = 1864;
+            this.RTViewPanel.Width = 1602;
             this.ThreeD_Panel.Width = 0;
+            
             this.RTViewControl_Panel.BackColor = Color.DimGray;
             this.BrowserControl_Panel.BackColor = Color.FromArgb(255,64,64,64);
             this.ThreeDControl_Panel.BackColor = Color.FromArgb(255, 64, 64, 64);
-
         }
 
         private void ThreeDIcon_Click(object sender, EventArgs e)
@@ -224,9 +228,14 @@ namespace ZodiacStation
 
         private void ThreeDControl_Click(object sender, EventArgs e)
         {
+            this.RTViewPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Detail.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ThreeD_Panel.Dock = System.Windows.Forms.DockStyle.Fill;
+
             this.Detail.Width = 0;
             this.RTViewPanel.Width = 0;
-            this.ThreeD_Panel.Width = 1864;
+            this.ThreeD_Panel.Width = 1602;
+
             this.RTViewControl_Panel.BackColor = Color.FromArgb(255, 64, 64, 64);
             this.BrowserControl_Panel.BackColor = Color.FromArgb(255, 64, 64, 64);
             this.ThreeDControl_Panel.BackColor = Color.DimGray;
@@ -234,9 +243,15 @@ namespace ZodiacStation
 
         private void BrowserControl_Click(object sender, EventArgs e)
         {
-            this.Detail.Width = 1864;
+            this.RTViewPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Detail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ThreeD_Panel.Dock = System.Windows.Forms.DockStyle.Left;
+
+            this.Detail.Width = 1602;
             this.RTViewPanel.Width = 0;
             this.ThreeD_Panel.Width = 0;
+
+
             this.RTViewControl_Panel.BackColor = Color.FromArgb(255, 64, 64, 64);
             this.BrowserControl_Panel.BackColor = Color.DimGray;
             this.ThreeDControl_Panel.BackColor = Color.FromArgb(255, 64, 64, 64);
